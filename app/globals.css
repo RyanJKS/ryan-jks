@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f5f5f7;
+  --foreground: #050507;
+  --muted: #63636a;
+  --panel: rgba(255, 255, 255, 0.64);
+  --panel-strong: rgba(255, 255, 255, 0.9);
+  --panel-solid: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --accent: #0066cc;
+  --accent-strong: #004f9f;
+  --signal: #7c3aed;
+  --warm: #b7791f;
+  --grid: rgba(0, 0, 0, 0.05);
+  --shadow: 0 32px 100px rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 16px 44px rgba(0, 0, 0, 0.08);
+  --radius: 24px;
+  --radius-sm: 12px;
+}
+
+.dark {
+  --background: #050507;
+  --foreground: #f5f5f7;
+  --muted: #a8a8af;
+  --panel: rgba(28, 28, 30, 0.58);
+  --panel-strong: rgba(36, 36, 39, 0.88);
+  --panel-solid: #101013;
+  --border: rgba(255, 255, 255, 0.13);
+  --accent: #2997ff;
+  --accent-strong: #7bc0ff;
+  --signal: #a78bfa;
+  --warm: #f0b35a;
+  --grid: rgba(255, 255, 255, 0.055);
+  --shadow: 0 32px 120px rgba(0, 0, 0, 0.48);
+  --shadow-soft: 0 18px 56px rgba(0, 0, 0, 0.36);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 112px;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--panel-solid) 72%, var(--background)), var(--background) 28%, color-mix(in srgb, var(--background) 94%, var(--accent) 6%) 100%);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px;
+  mask-image: linear-gradient(to bottom, black, transparent 58%);
+  opacity: 0.28;
+}
+
+.section-container {
+  width: min(1280px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.hero-container {
+  width: min(1500px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.surface {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+}
+
+.surface-quiet {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(22px) saturate(145%);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+}
+
+.premium-surface {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(140deg, color-mix(in srgb, var(--panel-solid) 88%, transparent), color-mix(in srgb, var(--panel) 72%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 46%);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(28px) saturate(155%);
+  -webkit-backdrop-filter: blur(28px) saturate(155%);
+}
+
+.premium-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.68), transparent 32%),
+    linear-gradient(310deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 42%);
+  opacity: 0.72;
+}
+
+.blueprint-surface {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--panel-solid) 86%, transparent), color-mix(in srgb, var(--panel) 78%, transparent)),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+}
+
+.dark .premium-surface::before {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(310deg, color-mix(in srgb, var(--accent) 17%, transparent), transparent 46%);
+  opacity: 0.86;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.text-muted-foreground {
+  color: var(--muted);
+}
+
+.text-spektr-cyan-50 {
+  color: var(--accent-strong);
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.platform-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.42;
+}
+
+.premium-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--panel-solid) 86%, transparent), color-mix(in srgb, var(--panel) 84%, transparent)),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 48%);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+}
+
+.premium-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.56), transparent 34%);
+  opacity: 0.65;
+}
+
+.dark .premium-card::before {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), transparent 36%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
