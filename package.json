@@ -44,7 +44,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "eslint": "^9.39.1",
+    "eslint": "^10.4.0",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "latest",
     "husky": "^9.1.7",
