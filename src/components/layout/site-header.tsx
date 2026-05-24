@@ -4,8 +4,10 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { HashLink } from "@/components/ui/hash-link";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { portfolio } from "@/data/portfolio";
+import { getSiteHeaderHeightPx } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -17,6 +19,8 @@ export function SiteHeader() {
   useEffect(() => {
     const sectionIds = portfolio.nav.map((item) => item.href.replace("#", ""));
 
+    const offset = getSiteHeaderHeightPx();
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -27,7 +31,7 @@ export function SiteHeader() {
           setActiveSection(visible[0].target.id);
         }
       },
-      { rootMargin: "-35% 0px -50% 0px", threshold: [0.15, 0.4] },
+      { rootMargin: `-${offset}px 0px -55% 0px`, threshold: [0, 0.15, 0.35] },
     );
 
     sectionIds.forEach((id) => {
@@ -46,7 +50,7 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header data-site-header className="fixed inset-x-0 top-0 z-50">
       <motion.div
         className={cn(
           "border-b transition-[background,border-color,box-shadow] duration-300",
@@ -59,7 +63,7 @@ export function SiteHeader() {
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
         <nav
-          className="section-container flex h-[4.25rem] items-center justify-between gap-4"
+          className="section-container flex h-[var(--site-header-height)] items-center justify-between gap-4"
           aria-label="Primary"
         >
           <Link
@@ -79,7 +83,7 @@ export function SiteHeader() {
             {portfolio.nav.map((item) => {
               const isActive = activeSection === item.href.replace("#", "");
               return (
-                <Link
+                <HashLink
                   key={item.href}
                   href={item.href}
                   className={cn(
@@ -97,7 +101,7 @@ export function SiteHeader() {
                     />
                   ) : null}
                   <span className="relative z-10">{item.label}</span>
-                </Link>
+                </HashLink>
               );
             })}
           </div>
@@ -125,28 +129,27 @@ export function SiteHeader() {
         </nav>
 
         {open ? (
-          <motion.div
+          <div
+            data-mobile-nav
             className="border-t border-[color:var(--border)] bg-[color:var(--nav-bg)] px-4 py-3 backdrop-blur-2xl lg:hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
           >
             <div className="grid gap-1">
               {portfolio.nav.map((item) => (
-                <Link
+                <HashLink
                   key={item.href}
                   href={item.href}
                   className="rounded-xl px-3 py-3 text-sm font-medium text-[color:var(--muted)] hover:bg-[color:var(--panel)] hover:text-[color:var(--foreground)]"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
-                </Link>
+                </HashLink>
               ))}
               <div className="mt-2 flex items-center justify-between border-t border-[color:var(--border)] pt-3">
                 <span className="text-xs font-medium text-[color:var(--muted)]">Theme</span>
                 <ThemeToggle />
               </div>
             </div>
-          </motion.div>
+          </div>
         ) : null}
       </motion.div>
     </header>

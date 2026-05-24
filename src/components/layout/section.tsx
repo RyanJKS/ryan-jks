@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { fadeInUp } from "@/lib/motion";
+import { fadeIn } from "@/lib/motion";
 
 type SectionProps = {
   id: string;
@@ -27,14 +27,16 @@ export function Section({
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id={id} className={cn("scroll-mt-24 py-24 md:py-32", className)}>
+    <section className={cn("py-16 md:py-24", className)}>
       <div className="section-container">
         <motion.header
+          id={id}
+          data-section-heading
           className="max-w-3xl"
           initial={reduceMotion ? false : "hidden"}
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          variants={fadeInUp}
+          variants={fadeIn}
         >
           <p className="text-xs font-semibold tracking-[0.2em] text-[color:var(--accent-strong)] uppercase">
             {eyebrow}

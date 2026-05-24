@@ -4,6 +4,10 @@ out
 dist
 coverage
 *.tsbuildinfo
+playwright-report/
+test-results/
+blob-report/
+coverage/
 
 .env
 .env*.local

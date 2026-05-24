@@ -7,7 +7,19 @@ const eslintConfig = [
   ...nextTypescript,
   prettier,
   {
-    ignores: [".next/**", "node_modules/**", "out/**", "dist/**", "coverage/**"],
+    ignores: [
+      ".next/**",
+      "node_modules/**",
+      "out/**",
+      "dist/**",
+      "coverage/**",
+      "playwright-report/**",
+      "test-results/**",
+      "eslint.config.mjs",
+      "commitlint.config.mjs",
+      "playwright.config.ts",
+      "vitest.config.ts",
+    ],
   },
 ];
 

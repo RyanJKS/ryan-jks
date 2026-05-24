@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { HashLink } from "@/components/ui/hash-link";
 import { portfolio } from "@/data/portfolio";
 
 export function SiteFooter() {
@@ -16,24 +16,24 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-4 text-sm font-semibold text-[color:var(--muted)]">
-          <Link
+          <HashLink
             href="#process"
             className="transition-colors hover:text-[color:var(--foreground)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none"
           >
             Process
-          </Link>
-          <Link
+          </HashLink>
+          <HashLink
             href="#principles"
             className="transition-colors hover:text-[color:var(--foreground)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none"
           >
             Rules
-          </Link>
-          <Link
+          </HashLink>
+          <HashLink
             href="#contact"
             className="transition-colors hover:text-[color:var(--foreground)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none"
           >
             Contact
-          </Link>
+          </HashLink>
           <span aria-hidden="true">·</span>
           <span>© {year}</span>
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { ScrollAnchorHandler } from "@/components/layout/scroll-anchor-handler";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { portfolio } from "@/data/portfolio";
 import "./globals.css";
@@ -96,13 +97,14 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <Script id="theme-init" strategy="beforeInteractive">
-          {`try{var t=localStorage.getItem("theme");var theme=t==="light"||t==="dark"?t:"light";document.documentElement.classList.toggle("dark",theme==="dark");document.documentElement.style.colorScheme=theme;}catch(e){}`}
+          {`try{history.scrollRestoration='manual';var t=localStorage.getItem("theme");var theme=t==="light"||t==="dark"?t:"light";document.documentElement.classList.toggle("dark",theme==="dark");document.documentElement.style.colorScheme=theme;}catch(e){}`}
         </Script>
         <Script
           id="person-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+        <ScrollAnchorHandler />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

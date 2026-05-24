@@ -21,6 +21,9 @@
   --nav-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.04);
   --radius: 20px;
   --radius-sm: 14px;
+  --site-header-height: 4.25rem;
+  --scroll-gap: 0.75rem;
+  --scroll-offset: calc(var(--site-header-height) + var(--scroll-gap));
 }
 
 .dark {
@@ -48,7 +51,10 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+}
+
+[data-section-heading] {
+  scroll-margin-top: var(--scroll-offset);
 }
 
 body {

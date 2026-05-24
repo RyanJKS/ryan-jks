@@ -15,7 +15,7 @@ export default function Home() {
       <SiteHeader />
       <div className="site-shell">
         <AmbientBackground />
-        <main className="pt-[4.25rem]">
+        <main className="pt-[var(--site-header-height)] pb-[var(--scroll-offset)]">
           <HeroSection />
           <AboutSection />
           <WorkflowSection />

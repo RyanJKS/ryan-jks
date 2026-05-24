@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { portfolio } from "@/data/portfolio";
 import { KineticHeadline } from "@/components/portfolio/kinetic-headline";
 import { Badge } from "@/components/ui/badge";
+import { HashLink } from "@/components/ui/hash-link";
 import { fadeInUp, floatLoop, heroStagger, scaleIn } from "@/lib/motion";
 
 const layers = [
@@ -72,7 +72,7 @@ export function HeroSection() {
   const { hero } = portfolio;
 
   return (
-    <section className="hero-container relative min-h-[calc(100vh-4.25rem)] pt-14 pb-24 md:pt-20 md:pb-32">
+    <section className="hero-container relative min-h-[calc(100vh-var(--site-header-height))] pt-14 pb-24 md:pt-20 md:pb-32">
       <motion.div
         className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16"
         variants={heroStagger}
@@ -103,13 +103,13 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div variants={fadeInUp} className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link href={hero.ctas.primary.href} className="btn-primary">
+            <HashLink href={hero.ctas.primary.href} className="btn-primary">
               {hero.ctas.primary.label}
               <ArrowDown className="h-4 w-4" aria-hidden="true" />
-            </Link>
-            <Link href={hero.ctas.secondary.href} className="btn-secondary">
+            </HashLink>
+            <HashLink href={hero.ctas.secondary.href} className="btn-secondary">
               {hero.ctas.secondary.label}
-            </Link>
+            </HashLink>
           </motion.div>
         </div>
 
