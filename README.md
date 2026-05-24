@@ -1,68 +1,62 @@
-# Jhelan Suggun Portfolio
+# Jhelan — Portfolio
 
-A polished, static-first Next.js portfolio for Jhelan Suggun, focused on enterprise data platforms, AI enablement, cloud architecture, clean backend systems, identity, governance, and first-principles engineering.
+A calm, premium one-page portfolio for a Data Platform Engineer / Platform & AI Enablement Engineer.
 
-## Local Setup
+Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
-Install dependencies:
-
-```bash
-bun install
-```
-
-Run the development server:
+## Run locally
 
 ```bash
-bun run dev
-```
-
-Open `http://localhost:3000`.
-
-Build for production:
-
-```bash
-bun run build
-```
-
-Start the production build locally:
-
-```bash
-bun run start
-```
-
-The `package.json` also includes standard npm-compatible scripts:
-
-```bash
+npm install
 npm run dev
-npm run build
-npm run start
-npm run lint
 ```
 
-## Content Editing
+Open [http://localhost:3000](http://localhost:3000).
 
-Most public copy lives in `content/`:
+## Edit content
 
-- `content/profile.ts` for identity, links, hero, SEO, and current focus.
-- `content/capabilities.ts` for skill groups.
-- `content/work.ts` for case studies and work detail routes.
-- `content/writing.ts` for article placeholders.
+Most personal copy lives in one file:
 
-## Vercel Deployment
+```txt
+src/data/portfolio.ts
+```
 
-1. Push this repository to GitHub.
-2. Import the repo into Vercel.
-3. Use the default Next.js framework preset.
-4. Keep the build command as `npm run build` or `bun run build`.
-5. Add the final production domain to `NEXT_PUBLIC_SITE_URL` if desired.
+Update name, links, projects, principles, stack, and section copy there.
 
-No server-only secrets or databases are required for this first version.
+Replace placeholder contact links:
 
-## Replace Before Publishing
+- `links.github`
+- `links.linkedin`
+- `links.email`
 
-- LinkedIn URL in `content/profile.ts`.
-- GitHub URL in `content/profile.ts`.
-- Canonical domain in `content/profile.ts` or `NEXT_PUBLIC_SITE_URL`.
-- CV file and link if a downloadable CV should be added.
-- Profile image if desired.
-- Real public project links when available.
+Optional: set `NEXT_PUBLIC_SITE_URL` in `.env.local` for SEO metadata.
+
+## Project structure
+
+```txt
+src/
+  app/
+    page.tsx
+    layout.tsx
+    globals.css
+  components/
+    layout/
+    portfolio/
+    ui/
+  data/
+    portfolio.ts
+  lib/
+    utils.ts
+    motion.ts
+```
+
+## Scripts
+
+- `npm run dev` — development server
+- `npm run build` — production build
+- `npm run start` — serve production build
+- `npm run lint` — ESLint
+
+## Deploy
+
+Works on Vercel, Netlify, or any Node host that supports Next.js App Router.
