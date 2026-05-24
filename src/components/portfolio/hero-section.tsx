@@ -28,13 +28,13 @@ function HeroSystemVisual() {
       aria-hidden="true"
     >
       <motion.div
-        className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-[color:var(--accent)]/20 blur-3xl"
+        className="pointer-events-none absolute -top-8 -right-8 h-40 w-40 rounded-full bg-[color:var(--accent)]/20 blur-3xl"
         variants={floatLoop}
         animate={reduceMotion ? undefined : "animate"}
       />
 
       <div className="relative z-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+        <p className="text-xs font-semibold tracking-[0.18em] text-[color:var(--muted)] uppercase">
           How I connect ideas
         </p>
 
@@ -56,9 +56,7 @@ function HeroSystemVisual() {
                 {index + 1}
               </span>
               <div>
-                <p className="text-sm font-medium text-[color:var(--foreground)]">
-                  {layer.label}
-                </p>
+                <p className="text-sm font-medium text-[color:var(--foreground)]">{layer.label}</p>
                 <p className="text-xs text-[color:var(--muted)]">{layer.detail}</p>
               </div>
             </motion.div>
@@ -74,7 +72,7 @@ export function HeroSection() {
   const { hero } = portfolio;
 
   return (
-    <section className="hero-container relative min-h-[calc(100vh-4.25rem)] pb-24 pt-14 md:pb-32 md:pt-20">
+    <section className="hero-container relative min-h-[calc(100vh-4.25rem)] pt-14 pb-24 md:pt-20 md:pb-32">
       <motion.div
         className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16"
         variants={heroStagger}
@@ -99,15 +97,12 @@ export function HeroSection() {
 
           <motion.p
             variants={fadeInUp}
-            className="mt-8 max-w-xl text-pretty text-base leading-8 text-[color:var(--muted)] md:text-lg"
+            className="mt-8 max-w-xl text-base leading-8 text-pretty text-[color:var(--muted)] md:text-lg"
           >
             {hero.supportingLine}
           </motion.p>
 
-          <motion.div
-            variants={fadeInUp}
-            className="mt-10 flex flex-col gap-3 sm:flex-row"
-          >
+          <motion.div variants={fadeInUp} className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link href={hero.ctas.primary.href} className="btn-primary">
               {hero.ctas.primary.label}
               <ArrowDown className="h-4 w-4" aria-hidden="true" />

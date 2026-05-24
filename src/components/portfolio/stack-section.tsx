@@ -30,7 +30,7 @@ export function StackSection() {
             variants={fadeInUp}
             className="premium-card rounded-[var(--radius-sm)] p-6"
           >
-            <h3 className="relative z-10 text-sm font-semibold uppercase tracking-[0.16em] text-[color:var(--accent-strong)]">
+            <h3 className="relative z-10 text-sm font-semibold tracking-[0.16em] text-[color:var(--accent-strong)] uppercase">
               {category.name}
             </h3>
             <div className="relative z-10 mt-5 flex flex-wrap gap-2">

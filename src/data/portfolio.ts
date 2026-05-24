@@ -3,7 +3,7 @@ export const portfolio = {
   fullName: "Jhelan Suggun",
   role: "Data Platform Engineer",
   roleSubtitle: "Platforms · Data · Cloud · AI",
-  siteUrl: "https://jhelan-suggun.vercel.app",
+  siteUrl: "https://jhelan.dev",
 
   seo: {
     title: "Jhelan — Data Platform Engineer",
@@ -126,8 +126,7 @@ export const portfolio = {
       },
       {
         title: "Clever in design, boring in production",
-        description:
-          "If a system needs heroics to operate, the design was probably showing off.",
+        description: "If a system needs heroics to operate, the design was probably showing off.",
       },
       {
         title: "Name things properly",
@@ -140,8 +139,7 @@ export const portfolio = {
   code: {
     eyebrow: "Code",
     title: "Things I build to think out loud.",
-    memorableLine:
-      "Most of my repos started as a question I could not stop turning over.",
+    memorableLine: "Most of my repos started as a question I could not stop turning over.",
     description:
       "Experiments, tools, and side projects where I try ideas before they become anything bigger. If you want to see how I think in practice, GitHub is the place.",
     reposUrl: "https://github.com/RyanJKS?tab=repositories",
@@ -156,8 +154,7 @@ export const portfolio = {
   stack: {
     eyebrow: "Stack",
     title: "Tools I reach for.",
-    memorableLine:
-      "Different layers, same game — boundaries, contracts, state, and failure modes.",
+    memorableLine: "Different layers, same game — boundaries, contracts, state, and failure modes.",
     categories: [
       {
         name: "Frontend",

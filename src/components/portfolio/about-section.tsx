@@ -28,7 +28,7 @@ export function AboutSection() {
           <motion.p
             key={paragraph.slice(0, 32)}
             variants={fadeInUp}
-            className="text-pretty text-base leading-8 text-[color:var(--muted)] md:text-lg"
+            className="text-base leading-8 text-pretty text-[color:var(--muted)] md:text-lg"
           >
             {paragraph}
           </motion.p>

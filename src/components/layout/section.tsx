@@ -36,19 +36,19 @@ export function Section({
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeInUp}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--accent-strong)]">
+          <p className="text-xs font-semibold tracking-[0.2em] text-[color:var(--accent-strong)] uppercase">
             {eyebrow}
           </p>
-          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.025em] text-[color:var(--foreground)] md:text-4xl lg:text-[2.65rem] lg:leading-[1.12]">
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.025em] text-balance text-[color:var(--foreground)] md:text-4xl lg:text-[2.65rem] lg:leading-[1.12]">
             {title}
           </h2>
           {description ? (
-            <p className="mt-5 text-pretty text-base leading-8 text-[color:var(--muted)] md:text-lg">
+            <p className="mt-5 text-base leading-8 text-pretty text-[color:var(--muted)] md:text-lg">
               {description}
             </p>
           ) : null}
           {memorableLine ? (
-            <p className="mt-5 border-l-2 border-[color:var(--accent)]/40 pl-4 text-pretty text-sm leading-7 text-[color:var(--foreground)]/85 italic md:text-base">
+            <p className="mt-5 border-l-2 border-[color:var(--accent)]/40 pl-4 text-sm leading-7 text-pretty text-[color:var(--foreground)]/85 italic md:text-base">
               {memorableLine}
             </p>
           ) : null}

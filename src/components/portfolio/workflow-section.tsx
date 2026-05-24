@@ -1,20 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Box,
-  GitBranch,
-  Hammer,
-  Network,
-  Sparkles,
-  Target,
-  type LucideIcon,
-} from "lucide-react";
+import { Box, GitBranch, Hammer, Network, Sparkles, Target, type LucideIcon } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { portfolio } from "@/data/portfolio";
 import { Section } from "@/components/layout/section";
 import { cn } from "@/lib/utils";
-import { fadeInUp } from "@/lib/motion";
 
 const stepIcons: Record<string, LucideIcon> = {
   messy: Target,
@@ -44,7 +35,7 @@ export function WorkflowSection() {
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
         <div className="relative">
           <div
-            className="absolute bottom-4 left-[1.15rem] top-4 w-px bg-[color:var(--border)]"
+            className="absolute top-4 bottom-4 left-[1.15rem] w-px bg-[color:var(--border)]"
             aria-hidden="true"
           />
           <motion.div
@@ -69,10 +60,8 @@ export function WorkflowSection() {
                     type="button"
                     onClick={() => setActiveId(step.id)}
                     className={cn(
-                      "group flex w-full items-start gap-4 rounded-2xl px-3 py-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
-                      isActive
-                        ? "bg-[color:var(--panel-strong)]"
-                        : "hover:bg-[color:var(--panel)]",
+                      "group flex w-full items-start gap-4 rounded-2xl px-3 py-3 text-left transition focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none",
+                      isActive ? "bg-[color:var(--panel-strong)]" : "hover:bg-[color:var(--panel)]",
                     )}
                     aria-current={isActive ? "step" : undefined}
                   >
@@ -99,7 +88,7 @@ export function WorkflowSection() {
                         />
                         <span
                           className={cn(
-                            "text-xs font-semibold uppercase tracking-[0.14em]",
+                            "text-xs font-semibold tracking-[0.14em] uppercase",
                             isActive
                               ? "text-[color:var(--accent-strong)]"
                               : "text-[color:var(--muted)]",
@@ -142,13 +131,13 @@ export function WorkflowSection() {
                 exit={reduceMotion ? undefined : { opacity: 0, x: -12 }}
                 transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--accent-strong)]">
+                <p className="text-xs font-semibold tracking-[0.16em] text-[color:var(--accent-strong)] uppercase">
                   Step {String(activeIndex + 1).padStart(2, "0")} · {activeStep.tag}
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-[color:var(--foreground)] md:text-3xl">
                   {activeStep.title}
                 </h3>
-                <p className="mt-4 max-w-lg text-pretty text-base leading-8 text-[color:var(--muted)]">
+                <p className="mt-4 max-w-lg text-base leading-8 text-pretty text-[color:var(--muted)]">
                   {activeStep.description}
                 </p>
               </motion.div>
@@ -161,7 +150,7 @@ export function WorkflowSection() {
                   type="button"
                   onClick={() => setActiveId(step.id)}
                   className={cn(
-                    "rounded-full px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
+                    "rounded-full px-3 py-1.5 text-xs font-semibold transition focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none",
                     step.id === activeId
                       ? "bg-[color:var(--foreground)] text-[color:var(--background)]"
                       : "border border-[color:var(--border)] bg-[color:var(--panel)] text-[color:var(--muted)] hover:text-[color:var(--foreground)]",

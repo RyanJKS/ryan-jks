@@ -64,7 +64,7 @@ export function SiteHeader() {
         >
           <Link
             href="/"
-            className="group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+            className="group shrink-0 focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none"
             aria-label={`${portfolio.name} home`}
           >
             <span className="block text-sm font-semibold tracking-tight text-[color:var(--foreground)]">
@@ -83,7 +83,7 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
+                    "relative rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none",
                     isActive
                       ? "text-[color:var(--foreground)]"
                       : "text-[color:var(--muted)] hover:text-[color:var(--foreground)]",

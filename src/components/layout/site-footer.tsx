@@ -18,19 +18,19 @@ export function SiteFooter() {
         <div className="flex flex-wrap items-center gap-4 text-sm font-semibold text-[color:var(--muted)]">
           <Link
             href="#process"
-            className="transition-colors hover:text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+            className="transition-colors hover:text-[color:var(--foreground)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none"
           >
             Process
           </Link>
           <Link
             href="#principles"
-            className="transition-colors hover:text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+            className="transition-colors hover:text-[color:var(--foreground)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none"
           >
             Rules
           </Link>
           <Link
             href="#contact"
-            className="transition-colors hover:text-[color:var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+            className="transition-colors hover:text-[color:var(--foreground)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none"
           >
             Contact
           </Link>

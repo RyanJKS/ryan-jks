@@ -3,10 +3,8 @@ node_modules
 out
 dist
 coverage
-*.tsbuildinfo
-
-.env
-.env*.local
-
+package-lock.json
+bun.lock
 *.log
-.DS_Store
+.env
+.env.*

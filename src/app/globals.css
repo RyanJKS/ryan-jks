@@ -187,7 +187,9 @@ a {
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 72px 72px, 72px 72px;
+  background-size:
+    72px 72px,
+    72px 72px;
   mask-image: linear-gradient(to bottom, black, transparent 65%);
   opacity: 0.35;
 }
@@ -223,20 +225,12 @@ a {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    125deg,
-    color-mix(in srgb, white 55%, transparent),
-    transparent 38%
-  );
+  background: linear-gradient(125deg, color-mix(in srgb, white 55%, transparent), transparent 38%);
   opacity: 0.5;
 }
 
 .dark .premium-surface::before {
-  background: linear-gradient(
-    125deg,
-    color-mix(in srgb, white 12%, transparent),
-    transparent 40%
-  );
+  background: linear-gradient(125deg, color-mix(in srgb, white 12%, transparent), transparent 40%);
   opacity: 0.7;
 }
 
@@ -252,12 +246,11 @@ a {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--panel-solid) 88%, transparent),
-      color-mix(in srgb, var(--panel) 86%, transparent)
-    );
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--panel-solid) 88%, transparent),
+    color-mix(in srgb, var(--panel) 86%, transparent)
+  );
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
@@ -272,11 +265,7 @@ a {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    color-mix(in srgb, white 45%, transparent),
-    transparent 36%
-  );
+  background: linear-gradient(120deg, color-mix(in srgb, white 45%, transparent), transparent 36%);
   opacity: 0.45;
 }
 

@@ -50,10 +50,7 @@ export function CodeSection() {
               ))}
             </ul>
 
-            <motion.div
-              className="mt-8"
-              variants={fadeInUp}
-            >
+            <motion.div className="mt-8" variants={fadeInUp}>
               <Link
                 href={code.reposUrl}
                 target="_blank"

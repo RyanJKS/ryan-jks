@@ -16,7 +16,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       type="button"
       onClick={toggleTheme}
       className={cn(
-        "inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--panel)] text-[color:var(--foreground)] transition hover:border-[color:var(--accent)]/40 hover:bg-[color:var(--panel-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
+        "inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--panel)] text-[color:var(--foreground)] transition hover:border-[color:var(--accent)]/40 hover:bg-[color:var(--panel-strong)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] focus-visible:outline-none",
         className,
       )}
       aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}

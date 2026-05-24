@@ -10,11 +10,7 @@ export function AmbientBackground() {
 
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-      <motion.div
-        className="ambient-orb ambient-orb-a"
-        variants={glowPulse}
-        animate="animate"
-      />
+      <motion.div className="ambient-orb ambient-orb-a" variants={glowPulse} animate="animate" />
       <motion.div
         className="ambient-orb ambient-orb-b"
         variants={glowPulse}

@@ -31,13 +31,13 @@ export function KineticHeadline() {
       </span>
 
       <span className="relative mt-2 block overflow-hidden md:mt-3">
-        <span className="invisible block text-5xl font-semibold leading-[1.02] tracking-[-0.04em] md:text-7xl lg:text-[5.5rem] lg:leading-[0.98]">
+        <span className="invisible block text-5xl leading-[1.02] font-semibold tracking-[-0.04em] md:text-7xl lg:text-[5.5rem] lg:leading-[0.98]">
           {words.reduce((a, b) => (a.length > b.length ? a : b), "")}
         </span>
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={activeWord}
-            className="absolute inset-0 flex items-center bg-gradient-to-r from-[color:var(--accent-strong)] via-[color:var(--signal)] to-[color:var(--accent)] bg-clip-text text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-transparent md:text-7xl lg:text-[5.5rem] lg:leading-[0.98]"
+            className="absolute inset-0 flex items-center bg-gradient-to-r from-[color:var(--accent-strong)] via-[color:var(--signal)] to-[color:var(--accent)] bg-clip-text text-5xl leading-[1.02] font-semibold tracking-[-0.04em] text-transparent md:text-7xl lg:text-[5.5rem] lg:leading-[0.98]"
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: -40, filter: "blur(10px)" }}
@@ -48,7 +48,7 @@ export function KineticHeadline() {
         </AnimatePresence>
       </span>
 
-      <span className="mt-2 block text-2xl font-semibold leading-tight tracking-[-0.03em] text-[color:var(--foreground)] md:mt-3 md:text-4xl lg:text-[2.75rem]">
+      <span className="mt-2 block text-2xl leading-tight font-semibold tracking-[-0.03em] text-[color:var(--foreground)] md:mt-3 md:text-4xl lg:text-[2.75rem]">
         {kinetic.suffix}
       </span>
     </h1>

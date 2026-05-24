@@ -31,9 +31,7 @@ export function PrinciplesSection() {
               <Card interactive className="h-full">
                 <CardHeader>
                   <CardTitle>{principle.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {principle.description}
-                  </CardDescription>
+                  <CardDescription className="text-base">{principle.description}</CardDescription>
                 </CardHeader>
               </Card>
             </MotionCard>

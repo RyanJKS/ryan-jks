@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
 } from "react";
 
 type Theme = "light" | "dark";
@@ -20,40 +20,64 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+const THEME_STORAGE_KEY = "theme";
+const themeListeners = new Set<() => void>();
+
 function applyTheme(theme: Theme) {
   document.documentElement.classList.toggle("dark", theme === "dark");
   document.documentElement.style.colorScheme = theme;
 }
 
+function getThemeSnapshot(): Theme {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function getServerSnapshot(): Theme {
+  return "dark";
+}
+
+function subscribeToTheme(callback: () => void) {
+  themeListeners.add(callback);
+
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === THEME_STORAGE_KEY) callback();
+  };
+
+  window.addEventListener("storage", onStorage);
+
+  return () => {
+    themeListeners.delete(callback);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+function setStoredTheme(theme: Theme) {
+  localStorage.setItem(THEME_STORAGE_KEY, theme);
+  applyTheme(theme);
+  themeListeners.forEach((listener) => listener());
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
+  const theme = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, getServerSnapshot);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial: Theme =
-      stored === "light" || stored === "dark" ? stored : systemDark ? "dark" : "light";
-
-    setThemeState(initial);
-    applyTheme(initial);
-    setMounted(true);
-  }, []);
+    applyTheme(theme);
+  }, [theme]);
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
-    applyTheme(next);
-    localStorage.setItem("theme", next);
+    setStoredTheme(next);
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setThemeState((current) => {
-      const next: Theme = current === "dark" ? "light" : "dark";
-      applyTheme(next);
-      localStorage.setItem("theme", next);
-      return next;
-    });
-  }, []);
+    setStoredTheme(theme === "dark" ? "light" : "dark");
+  }, [theme]);
 
   const value = useMemo(
     () => ({ theme, setTheme, toggleTheme, mounted }),
