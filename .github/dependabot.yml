@@ -5,6 +5,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 2
     groups:
       next:
         patterns:
@@ -16,8 +17,20 @@ updates:
           - react-dom
           - "@types/react"
           - "@types/react-dom"
+      dev-tooling:
+        patterns:
+          - eslint*
+          - prettier*
+          - lint-staged
+          - husky
+          - "@commitlint/*"
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 1
+    groups:
+      github-actions:
+        patterns:
+          - "*"

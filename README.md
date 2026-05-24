@@ -87,4 +87,13 @@ npm run validate
 
 ## Deploy
 
-Works on Vercel, Netlify, or any Node host that supports Next.js App Router.
+### Vercel (recommended)
+
+1. Import the repo and set **Framework Preset** to **Next.js**.
+2. Leave **Output Directory** empty (do not set `public` — that is for static sites).
+3. Use **Node.js 22** (matches `.nvmrc`).
+4. Set `NEXT_PUBLIC_SITE_URL` to your production URL.
+
+If you see `No Output Directory named "public" found`, the project is misconfigured as a static site. In **Settings → Build & Deployment**, set Framework Preset to **Next.js** and clear any Output Directory override.
+
+This repo includes `vercel.json` with explicit `npm ci` / `npm run build` commands so Vercel does not mis-detect the package manager.
